@@ -1,0 +1,47 @@
+Last login: Thu Dec  5 10:07:44 on ttys000
+n/dev/fd/12:18: command not found: compdef
+ano%                                                                            (base) nidhi@Nidhis-MacBook-Pro ~ % nano
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  UW PICO 5.09                       New Buffer                       Modified  
+
+# If using Flask for a backend:
+Flask==2.2.2
+
+# If using Django for a backend:
+Django==4.1.1
+
+# If you are working with web scraping or data processing:
+requests==2.28.1
+pandas==1.5.0
+
+# If you need any other libraries, list them here
+
+
+
+
+
+
+
+
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell  
