@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f5e6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cricket-header {
+    background-color: #1a532a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-header h1 {
+    margin: 0;
+}
+
+.cricket-text {
+    color: #1a532a;
+}
+
+.cricket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cricket-table th, .cricket-table td {
+    border: 1px solid #1a532a;
+    padding: 10px;
+    text-align: left;
+}
+
+.cricket-table th {
+    background-color: #1a532a;
+    color: #fff;
+}
+
+.cricket-footer {
+    background-color: #1a532a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-footer p {
+    margin: 0;
+}

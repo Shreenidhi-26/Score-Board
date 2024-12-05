@@ -1,0 +1,104 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f5e6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cricket-header {
+    background-color: #1a532a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-header h1 {
+    margin: 0;
+}
+
+.cricket-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cricket-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.cricket-content h1,
+.cricket-content h2,
+.cricket-content h3,
+.cricket-content h4,
+.cricket-content h5,
+.cricket-content h6 {
+    color: #1a532a;
+}
+
+.cricket-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.cricket-content h2 {
+    border-bottom: 2px solid #1a532a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.cricket-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cricket-content ul li::before {
+    content: "\2022";
+    color: #1a532a;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.cricket-footer {
+    background-color: #1a532a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.cricket-footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.cricket-footer .cricket-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Additional Cricket-themed Styling */
+.cricket-text {
+    color: #1a532a;
+}
+
+

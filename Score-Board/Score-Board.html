@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Cricket Board</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #040404;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-image: url('stadium.jpg');
+            background-size: cover;
+        }
+
+        .number-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .number-button:hover {
+            background-color: #0A5FB3;
+        }
+
+        .number-button:active {
+            transform: scale(0.95);
+        }
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        header, footer {
+            
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        header nav ul, footer nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        header nav a, footer nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #cricketField {
+            position: relative;
+            text-align: left;
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(195, 215, 222, 0.8); /* Green color with 80% transparency */
+            border-radius: 20%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+
+
+        #teamsInfo {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #teamImages {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        #teamImages img {
+            width: 250px; /* Adjust the width as needed */
+            height: auto;
+            border-radius: 10px;
+           
+            margin-right: 10px; 
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Place the video behind other elements */
+        }
+
+        #runs {
+            display: inline-block;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Add this keyframe animation for the runs display */
+        @keyframes scoreAnimation {
+            0% {
+                transform: scale(1);
+            }
+        50% {
+                transform: scale(1.2);
+            }
+        100% {
+                transform: scale(1);
+            }
+        }
+
+        .row, .row1 {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .box, .box1 {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 10px;
+            width: 120px;
+        }
+
+        #numberButtons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .number-button {
+            background-color: #ffffff;
+            color: rgba(195, 215, 222, 0.8);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #duckPopup {
+            display: none;
+        }
+
+        #duckAnimation {
+            width: 100px;
+            height: 100px;
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        #noBallPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(122, 205, 168, 0.8);
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Schedule.html">Schedule</a></li>
+                <li><a href="Statistics.html">Statistics</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div id="teamsInfo">
+        <h2>Match: India vs Australia</h2>
+        <p><b>Batting: India</b></p>
+    </div>
+    <div id="teamImages" style="display: flex; justify-content: center; align-items: center;">
+        <img src="Ind.jpeg" alt="India Logo" style="width: 100px;"> 
+        <h2 style="margin: 0 10px;">Vs</h2>
+        <img src="Aus.jpeg" alt="Australia Logo" style="width: 100px;"> 
+    </div>
+    
+
+    <div id="cricketField">
+        
+        <div class="row">
+            <div class="box" id="score"><p>Runs: <span id="runs">0</span></p></div>
+            <div class="box" id="overs"><p>Overs: <span id="over">0</span></p></div>
+            <div class="box" id="wickets"><p>Wickets: <span id="wicket">0</span></p></div>
+            <div class="box" id="wides"><p>Wides: <span id="wide">0</span></p></div>
+        </div>
+        <div class="row1">
+            <div class="box1" id="noBallsBox"><p>No Balls: <span id="noBalls">0</span></p></div> 
+            <div class="box1" id="foursBox"><p>Fours: <span id="fours">0</span></p></div>
+            <div class="box1" id="sixesBox"><p>Sixes: <span id="sixes">0</span></p></div>
+        </div>
+        <b><div class="team-details">India Batting</div></b>
+
+        <div id="numberButtons">
+            <button class="number-button" onclick="updateScore(0, 'dot')">Dot Ball</button>
+            <button class="number-button" onclick="updateScore(1)">1</button>
+            <button class="number-button" onclick="updateScore(2)">2</button>
+            <button class="number-button" onclick="updateScore(3)">3</button>
+            <button class="number-button" onclick="updateScore(4, 'fours')">4</button>
+            <button class="number-button" onclick="updateScore(6, 'sixes')">6</button>
+            <button class="number-button" onclick="updateWicket()">W</button>
+            <button class="number-button" onclick="updateWide()">Wide</button>
+            <button class="number-button" onclick="updateNoBall()">No Ball</button>
+
+        </div>
+        
+        <div id="duckPopup" style="display: none;">
+            <div id="marqueeContainer" style="text-align: center;">
+                <marquee behavior="scroll" direction="left" scrollamount="10">
+                </marquee>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="noBallPopup">
+        It's a FREE HIT!<br>
+        Enter runs: <input type="number" id="freeHitRuns" min="0" step="1">
+        <button onclick="updateFreeHit()">Submit</button>
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="Terms-and-service.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        let runs = 0;
+        let wickets = 0;
+        let wide = 0;
+        let balls = 0;
+        let noBalls = 0;
+        let fours = 0;
+        let sixes = 0;
+        let dotBalls = 0;
+
+        function playSound(soundFile) {
+            let audio = new Audio(soundFile);
+            audio.play();
+        }
+
+        function updateScore(score, type) {
+            runs += score;
+            balls++;
+
+            // Increment counts for Dot Ball, No Balls, fours, or sixes based on the button clicked
+            if (type === 'dot') {
+                // Dot Ball logic (if needed)
+            } else if (type === 'noBalls') {
+                noBalls++;
+            } else if (type === 'fours') {
+                fours++;
+                playSound("cheers.mp3");
+            } else if (type === 'sixes') {
+                sixes++;
+                playSound("cheers.mp3");
+            }
+
+            updateDisplay();
+        }
+
+        function updateWicket() {
+            wickets++;
+            balls++;
+            updateDisplay();
+            showDuckPopup();
+
+            // Marquee effect for "WICKET" 
+            const displayBox = document.getElementById('cricketField');
+            const wicketMarquee = document.createElement('div');
+            wicketMarquee.innerHTML = `
+            <div style="text-align: center;">
+                <marquee behavior="alternate" direction="right" style="margin-top: 5px;">WICKET</marquee>
+            </div>`;
+    
+            // Append the marquee to the display box
+            displayBox.insertBefore(wicketMarquee, displayBox.firstChild);
+
+            // Hide the marquee after 10 seconds
+            setTimeout(() => {
+                wicketMarquee.remove();
+            }, 10000);
+        }
+
+        function updateWide() {
+            wide++;
+            runs++;
+            balls++;
+            updateDisplay();
+        }
+
+
+        function updateDisplay() {
+            const runsElement = document.getElementById('runs');
+            const wicketsElement = document.getElementById('wicket');
+            const wideElement = document.getElementById('wide');
+            const oversElement = document.getElementById('over');
+            const noBallsElement = document.getElementById('noBalls'); 
+            const foursElement = document.getElementById('fours');
+            const sixesElement = document.getElementById('sixes');
+
+            runsElement.innerHTML = `<span id="runs" class="score-animation">${runs}</span>`;
+            wicketsElement.innerHTML = `<span>${wickets}</span>`;
+            wideElement.innerHTML = `<span>${wide}</span>`;
+            oversElement.innerHTML = `<span>${calculateOvers()}</span>`;
+            noBallsElement.innerHTML = `<span>${noBalls}</span>`;
+            foursElement.innerHTML = `<span>${fours}</span>`;
+            sixesElement.innerHTML = `<span>${sixes}</span>`;
+        }
+
+         
+        function calculateOvers() {
+            const overs = Math.floor(balls / 6) + '.' + (balls % 6);
+            return overs;
+        }
+
+        function showDuckPopup() {
+            const duckPopup = document.getElementById('duckPopup');
+            duckPopup.style.display = 'block';
+
+            // Triggering the animation by adding a class
+            duckPopup.classList.add('fade-in');
+
+            // Hide the duck popup after a delay (e.g., 5 seconds)
+            setTimeout(() => {
+                duckPopup.style.display = 'none';
+                duckPopup.classList.remove('fade-in'); // Remove the class to reset animation
+            }, 5000);
+        }
+
+
+        function updateNoBall() {
+            balls++;
+            noBalls++;
+            runs++;
+
+            // Show the no ball popup message
+            showNoBallPopup();
+            updateDisplay();
+        }
+
+        function showNoBallPopup() {
+            const noBallPopup = document.getElementById('noBallPopup');
+            noBallPopup.style.display = 'block';
+
+            // Hide the popup after a delay ( 5 seconds)
+            setTimeout(() => {
+                noBallPopup.style.display = 'none';
+            }, 5000);
+        }
+
+        function updateFreeHit() {
+            const freeHitRunsInput = document.getElementById('freeHitRuns');
+            const freeHitRuns = parseInt(freeHitRunsInput.value, 10);
+
+            if (!isNaN(freeHitRuns)) {
+                runs += freeHitRuns;
+                updateDisplay();
+            }
+
+            // Hide the popup after updating the score
+            document.getElementById('noBallPopup').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

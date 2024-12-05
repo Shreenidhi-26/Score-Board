@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Statistics - Cricket Website</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f5e6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cricket-header {
+            background-color: #1a532a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cricket-header h1 {
+            margin: 0;
+        }
+
+        .cricket-footer {
+            background-color: #1a532a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cricket-footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cricket-header">
+        <h1>Team Statistics</h1>
+    </header>
+
+    <div class="container">
+        <canvas id="teamStatisticsChart"></canvas>
+    </div>
+
+    <script>
+        // Dummy data for team statistics
+        const teamStatisticsData = {
+            labels: ['India', 'Australia', 'Pakistan', 'New Zealand', 'Netherlands', 'Sri Lanka', 'Bangladesh', 'South Africa', 'Afghanistan', 'West Indies'],
+            datasets: [{
+                label: 'Runs Scored',
+                backgroundColor: '#1a532a', // Dark green
+                borderColor: '#163414', // Slightly darker green
+                borderWidth: 1,
+                data: [500, 600, 450, 700, 300, 550, 400, 620, 480, 530],
+            }]
+        };
+
+        // Create a bar chart
+        const ctx = document.getElementById('teamStatisticsChart').getContext('2d');
+        const teamStatisticsChart = new Chart(ctx, {
+            type: 'bar',
+            data: teamStatisticsData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 100,
+                        },
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

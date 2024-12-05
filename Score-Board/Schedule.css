@@ -1,0 +1,89 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f5e6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cricket-header {
+    background-color: #1a532a; /* Dark green header background */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-header h1 {
+    margin: 0;
+}
+
+.cricket-header nav {
+    margin-top: 10px;
+}
+
+.cricket-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.cricket-content {
+    background-color: #f0f0f0; /* Light gray content background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.cricket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cricket-table th, .cricket-table td {
+    border: 1px solid #1a532a; /* Dark green border for table cells */
+    padding: 12px;
+    text-align: left;
+}
+
+.cricket-table th {
+    background-color: #1a532a; /* Dark green header background for table */
+    color: #fff;
+}
+
+.cricket-footer {
+    background-color: #1a532a; /* Dark green footer background */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.cricket-footer p {
+    margin: 0;
+}
+
+.cricket-text {
+    color: #1a532a; /* Dark green text color */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .cricket-table th, .cricket-table td {
+        padding: 8px;
+    }
+}
